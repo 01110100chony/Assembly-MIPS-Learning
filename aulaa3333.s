@@ -1,5 +1,8 @@
 .data
-
+        msg: .asciiz "Insira o primeiro n.\n"
+        msg1: .asciiz "Insira o segundo n.\n"
+        msg2: .asciiz "O resultado eh : \n"
+        
 
 
 .text

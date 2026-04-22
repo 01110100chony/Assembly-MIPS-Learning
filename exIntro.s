@@ -1,18 +1,29 @@
 .data
 
-        msg: .asciiz "|Insira o primeiro n. |\n"
-        msg1: .asciiz "|Insira o segundo n. |\n"
-        msg2: .asciiz "|O resultado eh : |\n"
+        msg: .asciiz "|Insira o primeiro n.|\n|         "
+        msg1: .asciiz "|Insira o segundo n. |\n|         "
+        msg2: .asciiz "|     Resultado:     |\n|         "
         msg3: .asciiz "\n|--------------------|\n"
 
 .text
 
 
         soma:
+                addi $sp,$sp,-4
+                sw $ra,4($sp)
+
                 add $v0,$a0,$a1
+
+                lw $ra,4($sp)
+                addi $sp,$sp,4
+
                 jr $ra 
 
         main:
+
+                li $v0,4
+                la $a0,msg3
+                syscall
 
                 li $v0,4
                 la $a0,msg
